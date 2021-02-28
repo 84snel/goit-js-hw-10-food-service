@@ -3,6 +3,8 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
+const { LIGHT, DARK } = Theme;
+
 let savedTheme = localStorage.getItem('theme');
 const toggleRef = document.querySelector('#theme-switch-toggle');
 
@@ -10,14 +12,14 @@ checkSavedTheme();
 
 function checkSavedTheme() {
   if (!savedTheme) {
-    document.body.classList.add(Theme.LIGHT);
+    document.body.classList.add(LIGHT);
     return;
   }
-  if (savedTheme === 'dark') {
-    document.body.classList.add(Theme.DARK);
+  if (savedTheme === DARK) {
+    document.body.classList.add(DARK);
     toggleRef.checked = true;
   } else {
-    document.body.classList.add(Theme.LIGHT);
+    document.body.classList.add(LIGHT);
   }
 }
 
@@ -25,12 +27,12 @@ toggleRef.addEventListener('change', handleToggle);
 
 function handleToggle() {
   if (toggleRef.checked) {
-    document.body.classList.add(Theme.DARK);
-    localStorage.setItem('theme', 'dark');
-    document.body.classList.remove(Theme.LIGHT);
+    document.body.classList.add(DARK);
+    localStorage.setItem('theme', DARK);
+    document.body.classList.remove(LIGHT);
     return;
   }
-  document.body.classList.add(Theme.LIGHT);
-  localStorage.setItem('theme', 'light');
-  document.body.classList.remove(Theme.DARK);
+  document.body.classList.add(LIGHT);
+  localStorage.setItem('theme', LIGHT);
+  document.body.classList.remove(DARK);
 }

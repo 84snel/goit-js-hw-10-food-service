@@ -1,3 +1,3 @@
 import './styles.css';
-import './theme-switch';
-import './menu-markup';
+import './js/theme-switch';
+import './js/menu-markup';
